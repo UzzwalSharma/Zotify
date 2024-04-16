@@ -1,0 +1,548 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: antiquewhite;
+    overflow: hidden;
+    display: flex;
+    margin: 0; /* Add margin to the body */
+    /* padding: 10px; Add padding to the body */
+}
+
+/* Use Roboto font for a modern look */
+
+body {
+    font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  /* padding-top: 200px; */
+}
+
+
+
+.left {
+    width: 25vw;
+    padding: 10px; /* Adjust padding as needed */
+    margin-right: 10px; /* Add margin to create space between left and right sections */
+}
+
+.right {
+    /* background-color: #1db954; */
+    position: relative;
+    width: 100vw;
+    flex: 1; /* Take up remaining space */
+    padding: 0px; /* Adjust padding as needed */
+    right: 0px; /* Add margin to create space between left and right sections */
+    margin-top: 10px;
+    border: 5px solid red ;
+    border-radius: 25px;
+    border-style: none;
+
+}
+
+
+.icons{
+    display: flex;
+    padding: 5px;
+    /* justify-content: center;
+    align-items: center;
+     */
+     /* width: 20vw; */
+     height: 20vh;
+     border: 5px solid ;
+    border-radius: 20px;
+    border-style: none;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    /* background-color: aqua; */
+/*    
+    justify-content: center;
+    align-items: center; */
+    /* padding: 25px; */
+list-style: none;
+
+}
+ul li{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+   
+   
+}
+li img{
+    margin-bottom: 12px;
+    margin-right: 10px;
+    height: 25px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+#icon{
+    height: 25px;
+}
+
+.text{
+    text-align: center;
+    justify-content: flex-start;
+    align-items: center;
+gap: 15px;
+ 
+}
+.library{
+    border: 5px solid white;
+    margin-top: 10px;
+    border-radius: 20px;
+    border-style: none;
+    min-height: 60vh;
+    /* overflow-y: scroll; */
+}
+.text img{
+    height: 33px;
+    text-align: center;
+    margin-left: 10px;
+    padding: 4px;
+}
+
+.librarytext{
+    /* text-align: center; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+
+.text2{
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    text-align: center;
+    
+   
+}
+
+.footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+  font-size: 12px;
+  gap: 10px;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+  /* min-height: 50vh; */
+}
+
+.footer a{
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+
+.nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px; /* Increased for better spacing */
+    background-color: #212121; /* Dark grey for a subtle, modern look */
+}
+
+
+
+
+.leftrightsvg {
+   
+    display: flex;
+    align-items: center; /* Align buttons vertically in the center */
+    justify-content: flex-start;
+}
+
+.leftrightsvg button {
+    cursor: pointer;
+    background: transparent;
+    border: none; /* Remove border */
+    margin: 0 20px; /* Add horizontal spacing */
+   
+    display: flex;
+    justify-content: flex-start;
+}
+
+.leftrightsvg button img {
+    height: 25px;
+  
+}
+
+.btn {
+    margin-right: 20px; /* Consistent margin for separation */
+}
+
+
+
+
+
+
+
+
+
+
+
+#loginbtn, #signupbtn {
+    border-radius: 30px; /* Rounded edges */
+    padding: 10px 20px;
+    font-size: 1rem; /* Normalized font size */
+    font-weight: bold;
+    color: white; /* Text color */
+    /* background: linear-gradient(to right, #6a82fb, #fc5c7d); Gradient background */
+    border: none; /* Remove borders */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    background-color: #1db954;
+}
+
+#loginbtn:hover, #signupbtn:hover {
+    background: linear-gradient(to right, #fc5c7d, #6a82fb); /* Hover effect */
+    transform: translateY(-2px); /* Slight lift */
+}
+
+#signupbtn {
+    margin-right: 0; /* Align properly with login button */
+}
+
+
+.container {
+    border-radius: 8px;
+    padding: 12px;
+    width: 200px; /* Fixed width for consistent sizing */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #242424;
+    margin-bottom: 20px; /* Ensure there's space at the bottom of each album */
+}
+
+.imagecontainer img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+h2, p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #fff; /* Assuming a light text color is needed */
+    text-align: start;
+}
+.albums {
+    margin: 30px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    max-height: 60vh;
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: #1db954 #000000; /* Color of the thumb and track */
+}
+
+/* Style for the scrollbar thumb */
+.albums::-webkit-scrollbar-thumb {
+    background-color: #1db954; /* Color of the thumb */
+    border-radius: 10px; /* Radius of the thumb */
+}
+
+/* Style for the scrollbar track */
+.albums::-webkit-scrollbar-track {
+    background-color: #000000; /* Color of the track */
+}
+
+.musiclist {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+   
+   
+}
+
+.musiclist ul {
+    list-style: none;
+    padding: 0;
+   
+}
+
+.musiclist li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  
+  
+}
+
+.musiclist li:last-child {
+    border-bottom: none;
+}
+
+.musiclist li span {
+    margin-right: 10px;
+}
+
+.musiclist li button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.musiclist {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 40vh;
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: #1db954 #000000; /* Color of the thumb and track */
+}
+
+.musiclist ul {
+    list-style: none;
+    padding: 0;
+}
+
+.musiclist li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.musiclist li:last-child {
+    border-bottom: none;
+}
+
+.musiclist li span {
+    margin-right: 10px;
+}
+
+.musiclist li button {
+    background-color: #1db954;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style for the scrollbar thumb */
+.musiclist::-webkit-scrollbar-thumb {
+    background-color: #1db954; /* Color of the thumb */
+    border-radius: 10px; /* Radius of the thumb */
+}
+
+/* Style for the scrollbar track */
+.musiclist::-webkit-scrollbar-track {
+    background-color: #000000; /* Color of the track */
+}
+
+.playbar{
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    background-color: #000000;
+    width: 100%;
+    padding: 8px;
+    margin-right: 12px;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
+  /* height: 250px; */
+overflow: hidden;
+border: 2px solid black;
+border-radius: 12px;
+
+}
+
+.playbar i{
+
+    /* background-color: rgb(255, 100, 4); */
+    
+    font-size: 25px;
+    /* margin: 25px; */
+}
+
+.playbar button{
+    border: 2px solid red;
+    border-style: none;
+    border-radius: 50px;
+padding: 10px;
+cursor: pointer;
+margin: 12px;
+/* display: flex; */
+}
+.playbuttons{
+    display: flex;
+}
+.seekline {
+    flex: 1; /* allows seekline to fill the space */
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* ensure this does not crowd the volume control */
+}
+
+
+
+
+
+.seekline input {
+    width: 20vw;
+    height: 8px;
+    appearance: none;
+    background-color: #1db954; /* SkyBlue */
+    border-radius: 5px;
+    cursor: pointer;
+    width: 95%;
+    margin-right: 80px;
+    height: 5px; /* Adjust height as needed */
+   
+    border-radius: 3px;
+    outline: none;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: #f9fffa; /* SteelBlue */
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+   
+  }
+
+  .volume-control {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    justify-content: flex-end;
+}
+
+.volume-control .fa-volume-high {
+    font-size: 20px;
+    color: #fff; /* Change color as needed */
+    margin-right: 5px;
+}
+
+.volume-control input[type="range"] {
+    -webkit-appearance: none;
+    width: 100px; /* Adjust width as needed */
+    height: 5px; /* Adjust height as needed */
+    background-color: #1db954; /* SkyBlue */
+    border-radius: 3px;
+    outline: none;
+    margin-left: 5px;
+}
+
+.volume-control input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px; /* Adjust thumb width as needed */
+    height: 10px; /* Adjust thumb height as needed */
+    background-color: #fff; /* Thumb color */
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.text {
+    display: flex;
+    justify-content: space-between; /* Aligns items to the beginning and end of the flex container */
+    align-items: center; /* Aligns items vertically */
+}
+
+.librarytext {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+}
+
+.plus {
+   
+     /* Adjust margin as needed */
+}
+
+.musiclist {
+    padding: 10px; /* Adjust padding as needed */
+}
+
+.footer {
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+@media(max-width:1400px){
+    .left {
+        position: fixed; /* Use fixed to keep it relative to the viewport */
+        left: -100%; /* Start off-screen */
+        width: 25vw; /* Maintain width or switch to a fixed width in pixels if it's too wide */
+        height: 100vh; /* Full height to cover the whole viewport height */
+        background-color: #333; /* Assuming a background color */
+        transition: left 0.3s ease; /* Smooth transition for sliding in and out */
+        z-index: 1000; /* Make sure it's above other content */
+        overflow-y: auto; /* Add scroll to the sidebar content if needed */
+    }
+
+    .left.active {
+        left: 0; /* Bring into view when active */
+    }
+
+    .toggle-sidebar {
+        position: fixed;
+        left: 0;
+        top: 20px;
+        z-index: 1001;
+        cursor: pointer;
+        color: #fff;
+        background-color: #666;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+.playbar {
+    position: fixed; /* Fixed to the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    width: 100%; /* Full width */
+    padding: 1px 5px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack controls vertically */
+    transition: all 0.3s ease; /* Smooth transitions */
+    z-index: 500; /* High z-index to ensure it's above other content */
+}
+
+.playbuttons, .seekline{
+    width: 100%; 
+    justify-content: space-around; /* Space items nicely */
+    padding: 0 8px; /* Padding for touch targets */
+}
+
+.seekline input, .volume-control input[type="range"] {
+    width: 80%; /* Reduced width for better control */
+}
+
+}
+.toggle-sidebar{
+    background-color: #1db954;
+    
+}
+.toggle-sidebar img{
+    height: 25px;
+    /* background-color: #1db954; */
+}
