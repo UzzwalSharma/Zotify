@@ -9,14 +9,19 @@ let currentAudio = null;
 const volumeControl = document.querySelector(".volume");
 const songs = [
     {
-        title: "9 45",
-        artist: "Jay Trak, Prabh Singh, and Rooh Sandhu",
-        audioSrc: "9 45_64-(PagalWorld).mp3"
+        title: "God Damn",
+        artist: "Karan Aujla,Badshah",
+        audioSrc: "God Damn Ek Tha Raja 128 Kbps.mp3"
     },
     {
         title: "Abrars Entry",
         artist: "Harshavardhan Rameshwar",
         audioSrc: "Abrars Entry Jamal Kudu Animal 128 Kbps.mp3"
+    },
+    {
+        title: "Abrars Entry",
+        artist: "Harshavardhan Rameshwar",
+        audioSrc: "You And Me - Shubh.mp3"
     },
     {
         title: "Badnam",
@@ -50,22 +55,7 @@ songs.forEach((song, index) => {
     musicList.appendChild(listItem);
 });
 
-const playButtons = document.querySelectorAll(".playButton");
 
-playButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const index = button.dataset.index;
-        const audioSrc = songs[index].audioSrc;
-        const title=songs[index].title
-        const artist=songs[index].artist
-
-        playSong(audioSrc,title,artist);
-        seekBar.value = audio.currentTime;
-        seekBar.max = audio.duration;
-        playButton.innerHTML = '<i class="fa-solid fa-pause"></i>'
-        
-    });
-});
 });
 
 
@@ -110,9 +100,15 @@ seekBar.addEventListener("input", () => {
 
 
 playButton.addEventListener("click", () => {
-    if (!audio || audio.paused) {
-        // If no song is playing or is paused, play the default song
-        playSong("Music/You And Me - Shubh.mp3");
+    if (!currentAudio || currentAudio.paused) {
+        if (!currentAudio) {
+            // If no current audio is set, play the first song in the list
+            playSong(songs[2].audioSrc, songs[2].title, songs[2].artist);
+        } else {
+            // If there's a current audio but it's paused, resume playing it
+            currentAudio.play();
+           
+        }
         playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
     } else {
         // If a song is playing, toggle play/pause
@@ -125,6 +121,8 @@ playButton.addEventListener("click", () => {
         }
     }
 });
+
+
 
 
 volumeControl.addEventListener("input", () => {
@@ -195,15 +193,19 @@ function displayAlbumSongs(albumName) {
         // Add event listener to the newly created play button
         const playButton = listItem.querySelector('.playButton');
         playButton.addEventListener('click', () => {
+            console.log("Adding event listener to play button");
             playSong(song.audioSrc, song.title, song.artist);
-            play.innerHTML = '<i class="fa-solid fa-pause"></i>';
-            // playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
-
-
-            
+            play.innerHTML = '<i class="fa-solid fa-pause"></i>'; // Ensure the play button outside the playlist is updated
+            // Optionally, you can toggle the visibility of the play button in the playlist
+            togglePlayButton(listItem);
+            document.getElementById("defaultplay").innerText=`${song.title}`
         });
+
+        // Ensure the play button is displayed
+        playButton.style.display = 'block';
     });
 }
+
 
 
 // Add event listeners to each album card
@@ -215,7 +217,7 @@ albumCards.forEach(card => {
     });
 });
 
-// Select the toggle button
+
 // Select the toggle button
 const toggleButton = document.querySelector(".toggle-sidebar");
 
@@ -261,59 +263,51 @@ albumContainers.forEach(album => {
 
 
 // Function to play the next song
-
-// Function to play the next song
 function playNextSong() {
-    console.log("Next button clicked");
-    console.log("Current audio:", currentAudio);
-
-    // Check if currentAudio is null or undefined
     if (!currentAudio) {
         console.error("No current audio is playing.");
         return;
     }
 
-    // Log the current audio source
-    console.log("Current audio source:", currentAudio.src);
-
-    // Find the index of the current song in the playlist
     const currentIndex = songs.findIndex(song => song.audioSrc === currentAudio.src);
-    console.log("Current index:", currentIndex);
-
-    // Calculate the index of the next song
     const nextIndex = (currentIndex + 1) % songs.length;
-    console.log("Next index:", nextIndex);
-
-    // Get the audio source of the next song
     const nextAudioSrc = songs[nextIndex].audioSrc;
     const nextTitle = songs[nextIndex].title;
     const nextArtist = songs[nextIndex].artist;
-    console.log("Next audio source:", nextAudioSrc);
-
-    // Play the next song
+    playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
     playSong(nextAudioSrc, nextTitle, nextArtist);
 }
 
-
-
-
-
 // Function to play the previous song
 function playPreviousSong() {
-    // Find the index of the current song in the playlist
+    if (!currentAudio) {
+        console.error("No current audio is playing.");
+        return;
+    }
+
     const currentIndex = songs.findIndex(song => song.audioSrc === currentAudio.src);
-    
-    // Calculate the index of the previous song
     const previousIndex = (currentIndex - 1 + songs.length) % songs.length;
-    
-    // Get the audio source of the previous song
     const previousAudioSrc = songs[previousIndex].audioSrc;
     const previousTitle = songs[previousIndex].title;
     const previousArtist = songs[previousIndex].artist;
-    
-    // Play the previous song
+    playButton.innerHTML = '<i class="fa-solid fa-pause"></i>';
     playSong(previousAudioSrc, previousTitle, previousArtist);
 }
+
+
+function togglePlayButton(card) {
+    const playButton = card.querySelector('.playButton');
+    const otherPlayButtons = document.querySelectorAll('.playButton');
+
+   
+
+   
+}
+
+
+
+
+
 
 // Add event listener to the previous button
 previousbutton.addEventListener("click", playPreviousSong);
